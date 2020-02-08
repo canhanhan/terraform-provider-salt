@@ -29,6 +29,7 @@ The intended use-case is to integrate Terraform and SaltStack:
 | `address` | String | **Required** | URL to the CherryPy NetAPI endpoint (e.g.: https://saltmaster:8000) | `username`| String | **Required** | Username |
 | `password`| String | **Required** | Password |
 | `backend` | String | **Required** | External authentincation backend (eauth) (e.g.: pam) |
+| `skip_verify` | Bool | *Optional* | Skip TLS/SSL verification (Default: false) |
 
 ### Resources
 

@@ -26,6 +26,11 @@ func Provider() *schema.Provider {
 				Type:     schema.TypeString,
 				Required: true,
 			},
+			"skip_verify": {
+				Type:     schema.TypeBool,
+				Optional: true,
+				Default:  false,
+			},
 		},
 
 		ResourcesMap: map[string]*schema.Resource{
@@ -42,6 +47,7 @@ func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 		d.Get("username").(string),
 		d.Get("password").(string),
 		d.Get("backend").(string),
+		d.Get("skip_verify").(bool),
 	)
 
 	if err := c.Login(context.Background()); err != nil {
